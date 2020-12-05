@@ -39,7 +39,7 @@ namespace Tetris
 
 		int dx = 0;
 		bool rotate = false;
-		int columnNum = 1;
+		//int columnNum = 1;
 		public Tetris()
 		{
 			InitializeComponent();
@@ -48,14 +48,15 @@ namespace Tetris
 			backBuffer = new Bitmap(this.ClientSize.Width,
 			this.ClientSize.Height);
 			sprite = new Bitmap("images/tiles.png");
+			//this.DoubleBuffered = true;
 			index = 0;
 			Render();
 			graphics.DrawImageUnscaled(backBuffer, 0, 0);
 			// Khởi tạo một đồng hồ
-			//timer = new Timer();
-			//timer.Enabled = true;
-			//timer.Interval = 260;
-			//timer.Tick += new EventHandler(timer_Tick);
+			timer = new Timer();
+			timer.Enabled = true;
+			timer.Interval = 300;
+			timer.Tick += new EventHandler(timer_Tick);
 		}
 
 		private void Render()
@@ -65,12 +66,6 @@ namespace Tetris
 			g.Clear(Color.White);
 			// Xác dịnh số dòng, cột của một frame trên ảnh sprite
 			curFrameColumn = index;// % 5;
-			//Vẽ lên buffer
-			int n = 2;
-			for(int i=0;i<4;i++)
-			{
-				fall[i] = new Point(figures[2,i] % 2, figures[2,i] / 2);
-			}
 			//Move
 			for(int i=0;i<4;i++)
 			{
@@ -88,9 +83,22 @@ namespace Tetris
 					fall[i].Y = temp.Y + y;
 				}	
 			}
+
+			///// Logic game make me confused -.- try this game later i guess
 			//Set lại ban đầu
 			dx = 0;
 			rotate = false;
+
+
+			int n = 3;
+			if(fall[0].X==0)
+			for(int i=0;i<4;i++)
+			{
+				fall[i] = new Point(figures[n,i] % 2, figures[n,i] / 2);
+			}
+
+
+			//Vẽ lên buffer
 			for(int i=0;i<4;i++)
 			{
 				g.DrawImage(sprite, fall[i].X*18, fall[i].Y*18, 
@@ -99,11 +107,11 @@ namespace Tetris
 			
 			g.Dispose();
 			// Tăng thứ tự frame để lấy frame tiếp theo
-			index++;
-			if (index >= 8)
-				index = 0;
-			else
-				index++;
+			//index++;
+			//if (index >= 8)
+			//	index = 0;
+			//else
+			//	index++;
 		}
 
 		private void Tetris_KeyDown(object sender, KeyEventArgs e)
@@ -114,12 +122,22 @@ namespace Tetris
 			}
 			else if (e.KeyCode == Keys.Right) dx = 1;
 			else if (e.KeyCode == Keys.Left) dx = -1;
+			this.Invalidate();
+		}
+
+		private void Tetris_Paint(object sender, PaintEventArgs e)
+		{
+			Render();
+			graphics.DrawImageUnscaled(backBuffer, 0, 0);
 		}
 
 		private void timer_Tick(object sender, EventArgs e)
 		{
-			Render();
-			graphics.DrawImageUnscaled(backBuffer, 0, 0);
+			for(int i=0;i<4;i++)
+			{
+				fall[i].Y += 1;
+			}
+			this.Invalidate();
 		}
 	}
 }

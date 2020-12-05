@@ -28,17 +28,16 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tetris));
 			this.SuspendLayout();
 			// 
 			// Tetris
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.ClientSize = new System.Drawing.Size(304, 441);
 			this.Name = "Tetris";
 			this.Text = "Tetris";
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.Tetris_Paint);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tetris_KeyDown);
 			this.ResumeLayout(false);
 
