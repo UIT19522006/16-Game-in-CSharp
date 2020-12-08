@@ -1,0 +1,10 @@
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\bin\Debug\Doodle Jump.exe.config
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\bin\Debug\Doodle Jump.exe
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\bin\Debug\Doodle Jump.pdb
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\obj\Debug\Doodle Jump.csprojAssemblyReference.cache
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\obj\Debug\Doodle_Jump.DoodleJump.resources
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\obj\Debug\Doodle_Jump.Properties.Resources.resources
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\obj\Debug\Doodle Jump.csproj.GenerateResource.cache
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\obj\Debug\Doodle Jump.csproj.CoreCompileInputs.cache
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\obj\Debug\Doodle Jump.exe
+C:\Users\HELLO\Desktop\Doodle Jump\Doodle Jump\obj\Debug\Doodle Jump.pdb
